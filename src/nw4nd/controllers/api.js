@@ -9,8 +9,15 @@ function methodBind(req,res,next,methodName){
 }
 
 function launchMethod(req,res){
-	console.log("Class :" + req.classBindName);
-	console.log("Method :" + req.methodBindName);
+
+	if(!req.classBindName){
+		// Launch magic methods
+		console.log(req.methodBindName);
+	}
+	else{
+		console.log("Class :" + req.classBindName);
+		console.log("Method :" + req.methodBindName);
+	}
 	var keys = Object.keys(req.body);
 	keys.forEach(function(element){
 		console.log(typeof req.body[element]);
